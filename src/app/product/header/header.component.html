@@ -1,0 +1,52 @@
+
+  <div class="container">
+    <div class="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white ">
+        <button class="navbar-toggler" type="button" >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-5">
+            <li class="nav-item nav_link">
+              <a class="nav-link mr-4" [routerLink]="['/product']">HOME</a>
+            </li>
+            <li class="nav-item active nav_link">
+              <a class="nav-link mr-4" >SHOP</a>
+            </li>
+            <li class="nav-item nav_link">
+              <a class="nav-link " >MAGAZINE</a>
+            </li>
+          </ul>
+          <div class="icon_margin">
+          <i class="fa fa-search fa-lg"></i>
+          <i class="fa fa-shopping-cart fa-lg ml-4 mr-4"></i>
+          <a class="ml-2 nav-Login">Login</a>
+          </div>
+        </div>
+      </nav>
+    
+    <ng-container *ngIf="show">
+        <div style="margin: 0 auto;text-align: left;">
+            <div>
+                <label>Name:</label>
+                <div><input id="tbname" name="yourname" /></div>
+            </div>
+            <div>
+                <label>Email Address:</label>
+                <div><input name="email" id="email" /></div></div>
+            <div>
+                <label>Additional Information (optional):</label>
+                <div><textarea rows="5" cols="46"></textarea></div>
+            </div>
+        </div>
+    </ng-container>
+    </div>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+    <!-- <div class="footer">
+      <h2>footer</h2>
+    </div> -->
+  </div>
+  

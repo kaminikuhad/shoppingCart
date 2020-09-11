@@ -1,0 +1,131 @@
+<div class="container header-part">
+    <div class="header">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white ">
+            <button class="navbar-toggler" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-5">
+                    <li class="nav-item nav_link">
+                        <a class="nav-link mr-4" [routerLink]="['/product']">HOME</a>
+                    </li>
+                    <li class="nav-item active nav_link">
+                        <a class="nav-link mr-4">SHOP</a>
+                    </li>
+                    <li class="nav-item nav_link">
+                        <a class="nav-link ">MAGAZINE</a>
+                    </li>
+                </ul>
+                <div class="icon_margin">
+                    <i class="fa fa-search fa-lg mr-4"></i>
+                    <input type="text" name="search" [(ngModel)]="searchText" autocomplete="off">
+                    <i class="fa fa-shopping-cart fa-lg ml-4 mr-4"></i>
+                    <a class="ml-2 nav-Login">Login</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<div id="sidebar">
+    <h3>Filter By</h3>
+    <mat-accordion>
+        <mat-expansion-panel [expanded]="false" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <span class="text_bold">Categories</span>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="checklist categories">
+                <ul>
+                    <li><a href=""><span></span>New Arivals</a></li>
+                    <li><a href=""><span></span>Accesories</a></li>
+                    <li><a href=""><span></span>Bags</a></li>
+                    <li><a href=""><span></span>Dressed</a></li>
+                    <li><a href=""><span></span>Jackets</a></li>
+                    <li><a href=""><span></span>jewelry</a></li>
+                    <li><a href=""><span></span>Shoes</a></li>
+                    <li><a href=""><span></span>Shirts</a></li>
+                    <li><a href=""><span></span>Sweaters</a></li>
+                    <li><a href=""><span></span>T-shirts</a></li>
+                </ul>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <mat-accordion>
+        <mat-expansion-panel [expanded]="false" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <span class="text_bold">Color</span>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="checklist colors">
+                <ul>
+                    <li><a href=""><span></span>Beige</a></li>
+                    <li><a href=""><span style="background:#222"></span>Black</a></li>
+                    <li><a href=""><span style="background:#6e8cd5"></span>Blue</a></li>
+                    <li><a href=""><span style="background:#f56060"></span>Brown</a></li>
+                    <li><a href=""><span style="background:#44c28d"></span>Green</a></li>
+                </ul>
+
+                <ul>
+                    <li><a href=""><span style="background:#999"></span>Grey</a></li>
+                    <li><a href=""><span style="background:#f79858"></span>Orange</a></li>
+                    <li><a href=""><span style="background:#b27ef8"></span>Purple</a></li>
+                    <li><a href=""><span style="background:#f56060"></span>Red</a></li>
+                    <li><a href=""><span
+                                style="background:#fff;border: 1px solid #e8e9eb;width:13px;height:13px;"></span>White</a>
+                    </li>
+                </ul>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+
+    <mat-accordion>
+        <mat-expansion-panel [expanded]="false" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <span class="text_bold">Collections</span>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="checklist categories">
+                <ul>
+                    <li><a href=""><span></span>New Arivals</a></li>
+                    <li><a href=""><span></span>Accesories</a></li>
+                    <li><a href=""><span></span>Bags</a></li>
+                    <li><a href=""><span></span>Dressed</a></li>
+                    <li><a href=""><span></span>Jackets</a></li>
+                    <li><a href=""><span></span>jewelry</a></li>
+                    <li><a href=""><span></span>Shoes</a></li>
+                    <li><a href=""><span></span>Shirts</a></li>
+                    <li><a href=""><span></span>Sweaters</a></li>
+                    <li><a href=""><span></span>T-shirts</a></li>
+                </ul>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <h3>Price Range</h3>
+    <mat-slider class="example-margin" [disabled]="disabled" [invert]="invert" [max]="max" [min]="min" [step]="step"
+        [thumbLabel]="thumbLabel" [tickInterval]="getSliderTickInterval()" [(ngModel)]="value" [vertical]="vertical">
+    </mat-slider>
+</div>
+<div id="grid" class="container">
+    <div class="product" *ngFor="let product of productList | filter:searchText">
+
+        <div class="make3D">
+            <div class="product-front">
+                <img [src]="product.image" alt="" (click)="navigate(product)" />
+                <div class="stats">
+                    <div class="stats-container pt-5 pl-2">
+                    </div>
+                    <div class="pt-2 pl-2 productDetails">
+                        <span class="product_name">{{product.title}}</span>
+                        <span class="product_price">${{product.Price}}</span>
+                        <p>{{product.Subtitle}}</p>
+                        <span class="product_price fa fa-shopping-cart fa-lg"></span>
+                        <span class="product_name">FLUTED HEM DRESS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
